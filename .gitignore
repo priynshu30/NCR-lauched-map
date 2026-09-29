@@ -1,24 +1,25 @@
 # Dependencies
 node_modules/
+server/node_modules/
 
-# Build outputs
+# Build output
 dist/
 build/
 
-# Environment files (never commit real secrets)
+# Environment secrets
 .env
 server/.env
 
-# Logs
-*.log
-npm-debug.log*
-
-# OS files
+# OS
 .DS_Store
 Thumbs.db
 
-# TypeScript build info
+# TypeScript build cache
 *.tsbuildinfo
 
 # Vite cache
 .vite/
+
+# Logs
+*.log
+npm-debug.log*
