@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://ncrlaunchmap.in/sitemap.xml
+
+# Crawl-delay for polite indexing
+Crawl-delay: 1

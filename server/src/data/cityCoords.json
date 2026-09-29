@@ -1,0 +1,50 @@
+/**
+ * NCR LaunchMap — City → Coordinates Fallback Map
+ *
+ * Used by the geocoder when a free API call is unavailable or rate-limited.
+ * All coordinates are [lat, lng] (Leaflet convention).
+ * GeoJSON stores [lng, lat] — the geocoder flips them before saving to MongoDB.
+ *
+ * Coverage: NCR (Gurugram, Noida, Delhi) + common tech-hub sub-areas.
+ */
+{
+  "gurugram":              [28.4595, 77.0266],
+  "gurgaon":               [28.4595, 77.0266],
+  "dlf cyber city":        [28.4952, 77.0883],
+  "cyber city":            [28.4952, 77.0883],
+  "udyog vihar":           [28.5032, 77.0880],
+  "sohna road":            [28.4108, 77.0190],
+  "golf course road":      [28.4381, 77.1025],
+  "golf course extension": [28.4100, 77.0850],
+  "sector 32 gurugram":    [28.4730, 77.0697],
+  "sector 44 gurugram":    [28.4605, 77.0705],
+  "sector 18 gurugram":    [28.4790, 77.0840],
+  "cyber hub":             [28.4996, 77.0886],
+  "manesar":               [28.3572, 76.9381],
+  "palam vihar":           [28.5038, 76.9963],
+
+  "noida":                 [28.5355, 77.3910],
+  "sector 62 noida":       [28.6295, 77.3685],
+  "sector 125 noida":      [28.5440, 77.3230],
+  "sector 126 noida":      [28.5355, 77.3910],
+  "sector 132 noida":      [28.5122, 77.4003],
+  "sector 18 noida":       [28.5673, 77.3221],
+  "sector 5 noida":        [28.5856, 77.3159],
+  "greater noida":         [28.4745, 77.5040],
+  "noida expressway":      [28.5278, 77.3955],
+  "knowledge park":        [28.4720, 77.4770],
+
+  "delhi":                 [28.6139, 77.2090],
+  "connaught place":       [28.6328, 77.2197],
+  "saket":                 [28.5274, 77.2159],
+  "nehru place":           [28.5481, 77.2518],
+  "okhla":                 [28.5396, 77.2693],
+  "vasant kunj":           [28.5207, 77.1573],
+  "south delhi":           [28.5289, 77.2087],
+  "lajpat nagar":          [28.5672, 77.2360],
+  "janakpuri":             [28.6272, 77.0832],
+
+  "faridabad":             [28.4089, 77.3178],
+  "ghaziabad":             [28.6692, 77.4538],
+  "india":                 [28.6139, 77.2090]
+}

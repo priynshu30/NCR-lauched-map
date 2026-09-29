@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-brand: 79 70 229;
+    --color-hiring: 16 185 129;
+  }
+}
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.45);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Leaflet map resets & custom styles */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: 'Space Grotesk', system-ui, sans-serif !important;
+  background-color: #08111b !important;
+  z-index: 10;
+}
+
+.dark .leaflet-container {
+  background-color: #08111b !important;
+}
+
+/* Dark mode real street map filter - turns OSM into a stunning dark tech map without any API key */
+.dark .leaflet-tile-pane {
+  filter: brightness(0.68) invert(1) contrast(2.8) hue-rotate(205deg) saturate(0.35) brightness(0.75);
+}
+
+.light .leaflet-tile-pane {
+  filter: none;
+}
+
+/* Custom map pin marker reset */
+.custom-map-pin {
+  background: transparent !important;
+  border: none !important;
+  overflow: visible !important;
+}
+
+
+/* Custom Leaflet popup styling */
+.leaflet-popup-content-wrapper {
+  padding: 0 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: rgba(15, 23, 42, 0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  color: #f1f5f9 !important;
+}
+
+.light .leaflet-popup-content-wrapper {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: normal !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(15, 23, 42, 0.96) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.light .leaflet-popup-tip {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.leaflet-popup-close-button {
+  top: 10px !important;
+  right: 10px !important;
+  color: #94a3b8 !important;
+  padding: 4px !important;
+  z-index: 20 !important;
+}
+
+.leaflet-popup-close-button:hover {
+  color: #f8fafc !important;
+}
+
+/* Anti-Gravity pulse marker animation */
+@keyframes antigravity-ping {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  70%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.marker-pulse-ring {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.6) 0%, rgba(16, 185, 129, 0) 70%);
+  animation: antigravity-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+.marker-pulse-ring-delayed {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, rgba(16, 185, 129, 0) 70%);
+  animation: antigravity-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation-delay: 1s;
+  pointer-events: none;
+}
+
+/* ===== REAL DELHI METRO ANIMATIONS ===== */
+
+/* Forward train: left to right (e.g. Yellow Line Gurugram) */
+@keyframes metro-train-forward {
+  0%   { transform: translateX(-680px); }
+  100% { transform: translateX(calc(100vw + 250px)); }
+}
+
+/* Reverse train: right to left on separate track (e.g. Blue Line Noida) */
+@keyframes metro-train-reverse {
+  0%   { transform: translateX(calc(100vw + 250px)) scaleX(-1); }
+  100% { transform: translateX(-680px) scaleX(-1); }
+}
+
+/* Pantograph electrical arc spark */
+@keyframes pantograph-spark {
+  0%, 92%, 96%, 100% { opacity: 0; transform: scale(0.4); }
+  93%, 95% { opacity: 1; transform: scale(1.4); filter: drop-shadow(0 0 8px #38bdf8); }
+}
+
+.pantograph-spark-anim {
+  animation: pantograph-spark 3.8s ease-in-out infinite;
+}
+
+/* Red door warning indicator blinking */
+@keyframes door-light-blink {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; filter: drop-shadow(0 0 4px #ef4444); }
+}
+
+.door-light-blink-anim {
+  animation: door-light-blink 1.2s ease-in-out infinite;
+}
+
+/* Train 1 - Yellow Line (Towards Gurugram Cyber City) */
+.metro-train-anim1 {
+  animation: metro-train-forward 16s linear infinite;
+}
+
+/* Train 2 - Blue Line (Towards Noida Electronic City - Reverse track) */
+.metro-train-anim2 {
+  animation: metro-train-reverse 20s linear infinite;
+  animation-delay: -8s;
+}
+
+/* Train 3 - Magenta Line (Cross Corridor) */
+.metro-train-anim3 {
+  animation: metro-train-forward 25s linear infinite;
+  animation-delay: -14s;
+}
+
+/* Fade in animation for toast and modals */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out;
+}
+
+/* Scale-in for drawers */
+@keyframes scale-in {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
